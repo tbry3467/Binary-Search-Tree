@@ -1,34 +1,40 @@
 public class BST {
 
-    class Node {
+    protected class Node {
         public int data;
         public Node left, right, parent;
 
-        protected Node(int inData) {
+        public Node(int inData) {
             data = inData;
             left = right = parent = null;
         }
 
-        protected Node(int inData, Node inParent) {
+        public Node(int inData, Node inParent) {
             data = inData;
             parent = inParent;
             left = right = null;
         }
     }
+
     protected Node root;
+
     public BST() {
         root = null;
     }
+
     public BST(int inData){
         Node n = new Node(inData);
         root = n;
     }
+
     public int Search(int value) {
         return -1;
     }
+
     public int Delete(int value) {
         return -1;
     }
+
     public void insert(int data) {
         // if first item to be inserted, it becomes the root
         if (root == null) {
@@ -37,6 +43,7 @@ public class BST {
         }
         insert(data, root);
     }
+
     public void insert(int data, Node n) {
         // recursively calls itself till it finds an empty node in proper place
         if (data > n.data){
