@@ -27,8 +27,29 @@ public class BST {
         root = n;
     }
 
-    public int Search(int value) {
-        return -1;
+    public int search(int value) {
+        if (root == null){
+            return 0;
+        }
+        return search(value, root);
+    }
+
+    private int search(int value, Node n){
+        if (n.data == value){
+            return 1;
+        }
+        else if (n.data > value){
+            if (n.left == null){
+                return 0;
+            }
+            return search(value, n.left);
+        }
+        else{
+            if (n.right == null){
+                return 0;
+            }
+            return search(value, n.right);
+        }
     }
 
     public int Delete(int value) {
@@ -44,9 +65,9 @@ public class BST {
         insert(data, root);
     }
 
-    public void insert(int data, Node n) {
+    private void insert(int data, Node n) {
         // recursively calls itself till it finds an empty node in proper place
-        if (data > n.data){
+        if (data < n.data){
             if (n.left == null){
                 Node smaller = new Node(data, n);
                 n.left = smaller;
@@ -55,7 +76,7 @@ public class BST {
                 insert(data, n.left);
             }
         }
-        else if (data < n.data){
+        else if (data > n.data){
             if (n.right == null){
                 Node larger = new Node(data, n);
                 n.right = larger;
