@@ -28,6 +28,7 @@ public class BST {
     }
 
     public int search(int value) {
+        // if tree empty, return 0
         if (root == null){
             return 0;
         }
@@ -35,6 +36,7 @@ public class BST {
     }
 
     private int search(int value, Node n){
+        // recursively calls until it either finds the result or the next node is null
         if (n.data == value){
             return 1;
         }
